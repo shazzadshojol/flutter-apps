@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _tapped(index),
+      onTap: () => _tapped(),
       child: Scaffold(
         backgroundColor: Colors.grey[800],
         body: GridView.builder(

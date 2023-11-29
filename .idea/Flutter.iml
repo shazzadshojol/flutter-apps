@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/profile_a/build" />
+      <excludeFolder url="file://$MODULE_DIR$/profile_a/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/profile_a/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/profile_ui_exercise/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/profile_ui_exercise/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/profile_ui_exercise/build" />
+      <excludeFolder url="file://$MODULE_DIR$/multi_project_1/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/multi_project_1/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/multi_project_1/build" />
+      <excludeFolder url="file://$MODULE_DIR$/tic_tac_tow_game/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/tic_tac_tow_game/build" />
+      <excludeFolder url="file://$MODULE_DIR$/tic_tac_tow_game/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/college_home_a/build" />
+      <excludeFolder url="file://$MODULE_DIR$/college_home_a/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/college_home_a/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/travel_app_a/build" />
+      <excludeFolder url="file://$MODULE_DIR$/travel_app_a/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/travel_app_a/.pub" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

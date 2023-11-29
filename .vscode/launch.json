@@ -1,0 +1,88 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "college_home_a",
+            "cwd": "college_home_a",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "college_home_a (profile mode)",
+            "cwd": "college_home_a",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "college_home_a (release mode)",
+            "cwd": "college_home_a",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "multi_project_1",
+            "cwd": "multi_project_1",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "multi_project_1 (profile mode)",
+            "cwd": "multi_project_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "multi_project_1 (release mode)",
+            "cwd": "multi_project_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "profile_a",
+            "cwd": "profile_a",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "profile_a (profile mode)",
+            "cwd": "profile_a",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "profile_a (release mode)",
+            "cwd": "profile_a",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "travel_app_a",
+            "cwd": "travel_app_a",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "travel_app_a (profile mode)",
+            "cwd": "travel_app_a",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "travel_app_a (release mode)",
+            "cwd": "travel_app_a",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

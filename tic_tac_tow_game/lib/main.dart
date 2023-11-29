@@ -1,60 +1,108 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(TicTacTow());
+  runApp(TestApp());
 }
 
-class TicTacTow extends StatelessWidget {
-  const TicTacTow({Key? key});
+class TestApp extends StatelessWidget {
+  const TestApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  List<String> displeyEx0h = ['', '', '', '', '', '', '', '', ''];
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => _tapped(),
-      child: Scaffold(
-        backgroundColor: Colors.grey[800],
-        body: GridView.builder(
-            itemCount: 9,
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-            itemBuilder: (BuildContext context, index) {
-              return Container(
-                decoration:
-                    BoxDecoration(border: Border.all(color: Colors.grey)),
-                child: Center(
-                  child: Text(
-                    displeyEx0h[index],
-                    style: TextStyle(color: Colors.white, fontSize: 40),
-                  ),
-                ),
-              );
-            }),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Test Project'),
+        ),
+        body: TestAppHome(),
       ),
     );
   }
+}
 
-  void _tapped(int index) {
-    setState(() {
-      displeyEx0h[index] = 'o';
-    });
+class TestAppHome extends StatelessWidget {
+  const TestAppHome({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        child: Column(
+          children: [
+            Text('Testing Buttons', style: TextStyle(fontSize: 25)),
+            SizedBox(height: 40),
+            Buttons()
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Buttons extends StatefulWidget {
+  const Buttons({super.key});
+
+  @override
+  State<Buttons> createState() => _ButtonsState();
+}
+
+class _ButtonsState extends State<Buttons> {
+  var nrOfmale = 0;
+  var nrofFemale = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Container(
+      child: Column(
+        children: [
+          Text(
+            'Number of male: $nrOfmale',
+            style: TextStyle(fontSize: 25),
+          ),
+          SizedBox(height: 20),
+          Text(
+            'Number of Female: $nrofFemale',
+            style: TextStyle(fontSize: 25),
+          ),
+          SizedBox(height: 20),
+          MaterialButton(
+            onPressed: () {
+              setState(() {
+                nrOfmale++;
+              });
+            },
+            child: Text(
+              'Male',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            color: Colors.amber,
+            height: 50,
+            minWidth: 200,
+            elevation: 10,
+          ),
+          SizedBox(height: 20),
+          MaterialButton(
+            onPressed: () {
+              setState(() {
+                nrofFemale++;
+              });
+            },
+            child: Text(
+              'FeMale',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            color: Colors.amber,
+            height: 50,
+            minWidth: 200,
+            elevation: 10,
+          ),
+        ],
+      ),
+    ));
   }
 }

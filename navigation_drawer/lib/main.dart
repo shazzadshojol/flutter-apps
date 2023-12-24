@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:navigation_drawer/dafaults/defaults.dart';
 
+import 'components/textLable.dart';
+
 void main() {
   runApp(Navigation_Page());
 }
@@ -95,14 +97,9 @@ class _Navigation_MenuState extends State<Navigation_Menu> {
                           color: Colors.white),
                     ),
                     // SizedBox(height: ),
-                    Text(
-                      'johnrambo@mail.com',
-                      style: GoogleFonts.lato(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                          fontStyle: FontStyle.italic,
-                          color: Colors.white),
-                    )
+                    NewTextWidget(lable: 'john@example.com',)
+
+
                   ],
                 ),
               ),
@@ -180,6 +177,7 @@ class _Navigation_MenuState extends State<Navigation_Menu> {
     );
   }
 }
+
 
 class DrawerItem extends StatelessWidget {
   const DrawerItem({

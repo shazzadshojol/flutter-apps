@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class NewTextWidget extends StatelessWidget {
   NewTextWidget({
-    super.key, required this.lable,
+    super.key, required this.lable
   });
   final String lable;
   @override

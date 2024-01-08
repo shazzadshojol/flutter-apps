@@ -1,108 +1,208 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(TestApp());
+  runApp(TicTacTow());
 }
 
-class TestApp extends StatelessWidget {
-  const TestApp({super.key});
+class TicTacTow extends StatefulWidget {
+  const TicTacTow({super.key});
 
+  @override
+  State<TicTacTow> createState() => _TicTacTowState();
+}
+
+class _TicTacTowState extends State<TicTacTow> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Test Project'),
-        ),
-        body: TestAppHome(),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
     );
   }
 }
 
-class TestAppHome extends StatelessWidget {
-  const TestAppHome({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool firstMove = true;
+  List<String> displeyEx0h = [
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+  ];
+
+  var oScore = 0;
+  var xScore = 0;
+  var textStyle =
+      TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: Column(
-          children: [
-            Text('Testing Buttons', style: TextStyle(fontSize: 25)),
-            SizedBox(height: 40),
-            Buttons()
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Buttons extends StatefulWidget {
-  const Buttons({super.key});
-
-  @override
-  State<Buttons> createState() => _ButtonsState();
-}
-
-class _ButtonsState extends State<Buttons> {
-  var nrOfmale = 0;
-  var nrofFemale = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: Container(
-      child: Column(
+    return Scaffold(
+      backgroundColor: Colors.red,
+      body: Column(
         children: [
-          Text(
-            'Number of male: $nrOfmale',
-            style: TextStyle(fontSize: 25),
+          Expanded(
+              child: Container(
+                  padding: EdgeInsets.all(50),
+                  color: Colors.red,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          Text('Player x', style: textStyle),
+                          Text(oScore.toString(), style: textStyle),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Column(
+                        children: [
+                          Text('Player o', style: textStyle),
+                          Text(xScore.toString(), style: textStyle),
+                        ],
+                      ),
+                    ],
+                  ))),
+          Expanded(
+            flex: 3,
+            child: GridView.builder(
+                itemCount: 9,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3),
+                itemBuilder: (BuildContext context, int index) {
+                  return GestureDetector(
+                    onTap: () {
+                      _tapped(index);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.black87,
+                          border: Border.all(color: Colors.white60)),
+                      child: Center(
+                        child: Text(
+                          displeyEx0h[index],
+                          style: TextStyle(color: Colors.white, fontSize: 40),
+                        ),
+                      ),
+                    ),
+                  );
+                }),
           ),
-          SizedBox(height: 20),
-          Text(
-            'Number of Female: $nrofFemale',
-            style: TextStyle(fontSize: 25),
-          ),
-          SizedBox(height: 20),
-          MaterialButton(
-            onPressed: () {
-              setState(() {
-                nrOfmale++;
-              });
-            },
-            child: Text(
-              'Male',
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-            color: Colors.amber,
-            height: 50,
-            minWidth: 200,
-            elevation: 10,
-          ),
-          SizedBox(height: 20),
-          MaterialButton(
-            onPressed: () {
-              setState(() {
-                nrofFemale++;
-              });
-            },
-            child: Text(
-              'FeMale',
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-            color: Colors.amber,
-            height: 50,
-            minWidth: 200,
-            elevation: 10,
-          ),
+          Expanded(
+              child: Container(
+            color: Colors.red,
+          ))
         ],
       ),
-    ));
+    );
+  }
+
+  void _tapped(int index) {
+    if (firstMove && displeyEx0h[0] == '') {
+      displeyEx0h[index] = 'o';
+    } else if (!firstMove && displeyEx0h[0] == '') {
+      displeyEx0h[index] = 'x';
+    }
+    firstMove = !firstMove;
+    _checkWinner();
+    setState(() {});
+  }
+
+  void _checkWinner() {
+    // 1st row winner
+    if (displeyEx0h[0] == displeyEx0h[1] &&
+        displeyEx0h[0] == displeyEx0h[2] &&
+        displeyEx0h[0] != '') {
+      _showWinDialog(displeyEx0h[0]);
+    }
+    // 2nd row winner
+    if (displeyEx0h[3] == displeyEx0h[4] &&
+        displeyEx0h[3] == displeyEx0h[5] &&
+        displeyEx0h[3] != '') {
+      _showWinDialog(displeyEx0h[3]);
+    }
+    // 3nd row winner
+    if (displeyEx0h[6] == displeyEx0h[7] &&
+        displeyEx0h[6] == displeyEx0h[8] &&
+        displeyEx0h[6] != '') {
+      _showWinDialog(displeyEx0h[6]);
+    }
+    // 1st column winner
+    if (displeyEx0h[0] == displeyEx0h[3] &&
+        displeyEx0h[0] == displeyEx0h[6] &&
+        displeyEx0h[0] != '') {
+      _showWinDialog(displeyEx0h[0]);
+    }
+    // 2nd column winner
+    if (displeyEx0h[1] == displeyEx0h[4] &&
+        displeyEx0h[1] == displeyEx0h[7] &&
+        displeyEx0h[1] != '') {
+      _showWinDialog(displeyEx0h[1]);
+    }
+    // 3rd column winner
+    if (displeyEx0h[2] == displeyEx0h[5] &&
+        displeyEx0h[2] == displeyEx0h[8] &&
+        displeyEx0h[2] != '') {
+      _showWinDialog(displeyEx0h[2]);
+    }
+    // cross left to right
+    if (displeyEx0h[0] == displeyEx0h[4] &&
+        displeyEx0h[0] == displeyEx0h[8] &&
+        displeyEx0h[0] != '') {
+      _showWinDialog(displeyEx0h[0]);
+    }
+    // cross right to left
+    if (displeyEx0h[2] == displeyEx0h[4] &&
+        displeyEx0h[2] == displeyEx0h[6] &&
+        displeyEx0h[2] != '') {
+      _showWinDialog(displeyEx0h[2]);
+    }
+  }
+
+  void _showWinDialog(var winner) {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Winner is: ' + winner),
+            actions: [
+              ElevatedButton(
+                  onPressed: () {
+                    _clearBoard();
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('Play Again'))
+            ],
+          );
+        });
+    if (winner == 'o') {
+      oScore++;
+    } else if (winner == 'x') {
+      xScore++;
+    }
+    _clearBoard();
+  }
+
+  void _clearBoard() {
+    for (int i = 0; i < 9; i++) {
+      displeyEx0h[i] = '';
+    }
+    setState(() {});
   }
 }
